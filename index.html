@@ -855,11 +855,11 @@
 
   <script>
     $(document).ready(function () {
-      var nav = $("#navbarSupportedContent");
-      var btn = $(".custom_menu-btn");
+      const nav = $("#navbarSupportedContent");
+      const btn = $(".custom_menu-btn");
 
-      var toggler = $(".navbar-toggler");
-      var isExpanded = toggler.attr("aria-expanded") === "true";
+      const toggler = $(".navbar-toggler");
+      const isExpanded = toggler.attr("aria-expanded") === "true";
 
       btn.click(function (e) {
         e.preventDefault();
@@ -884,13 +884,28 @@
         e.preventDefault();
 
         // Obtém o estado atual do aria-expanded
-        var isExpanded = toggler.attr("aria-expanded") === "true";
+        const isExpanded = toggler.attr("aria-expanded") === "true";
 
         // Verifica se o menu está aberto e altera o fundo translúcido do header
         if (!isExpanded) {
           $(".header_section").addClass("header-bg-translucent");
         }else if(!nav.hasClass("lg_nav-toggle")){
           $(".header_section").removeClass("header-bg-translucent");
+        }
+      });
+      // Obtém todos os links de navegação dentro do colapso
+      $('.navbar-nav .nav-link').on('click', function() {
+        // Obtém o elemento collapse
+        const $collapseElement = $('#navbarSupportedContent');
+        const isExpanded = toggler.attr("aria-expanded") === "true";
+        
+        // Verifica se o menu está visível e o fecha se necessário
+        if ($collapseElement.hasClass('lg_nav-toggle') || isExpanded) {
+          $collapseElement.removeClass('lg_nav-toggle');
+          $(".header_section").removeClass("header-bg-translucent");
+          btn.removeClass("menu_btn-style");
+          toggler.attr("aria-expanded", "false");
+          nav.removeClass("show");
         }
       });
 
