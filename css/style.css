@@ -164,17 +164,6 @@ a:focus {
           box-shadow: none;
 }
 
-.custom_nav-container .nav_search-btn {
-  background-image: url(../images/search-icon.png);
-  background-size: 17px;
-  background-repeat: no-repeat;
-  background-position-y: 7px;
-  width: 35px;
-  height: 35px;
-  padding: 0;
-  border: none;
-}
-
 .custom_nav-container form {
   padding-top: 7px;
 }
@@ -221,15 +210,6 @@ a:focus {
 
 .lg_toggl-btn:focus {
   outline: none;
-}
-
-.login_btn-container {
-  padding-top: 30px;
-}
-
-.login_btn-container a {
-  color: #24d278;
-  text-transform: uppercase;
 }
 
 /*end header section*/

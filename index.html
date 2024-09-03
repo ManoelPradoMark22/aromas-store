@@ -145,15 +145,13 @@
               <div class="row">
                 <div class="col-md-6">
                   <div class="detail-box-slider">
-                    <div class="logo-text-slider-container">
-                      <div class="logo-text-slider">
-                        <span class="logo-text-slider-first">
-                          Aromas
-                        </span>
-                        <span class="logo-text-slider-second">
-                          Store
-                        </span>
-                      </div>
+                    <div class="logo-text-slider">
+                      <span class="logo-text-slider-first">
+                        Aromas
+                      </span>
+                      <span class="logo-text-slider-second">
+                        Store
+                      </span>
                     </div>
                     <p>
                       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
@@ -860,6 +858,9 @@
       var nav = $("#navbarSupportedContent");
       var btn = $(".custom_menu-btn");
 
+      var toggler = $(".navbar-toggler");
+      var isExpanded = toggler.attr("aria-expanded") === "true";
+
       btn.click(function (e) {
         e.preventDefault();
 
@@ -878,6 +879,21 @@
           $(".header_section").removeClass("header-bg-translucent");
         }
       });
+
+      toggler.click(function (e) {
+        e.preventDefault();
+
+        // Obtém o estado atual do aria-expanded
+        var isExpanded = toggler.attr("aria-expanded") === "true";
+
+        // Verifica se o menu está aberto e altera o fundo translúcido do header
+        if (!isExpanded) {
+          $(".header_section").addClass("header-bg-translucent");
+        }else if(!nav.hasClass("lg_nav-toggle")){
+          $(".header_section").removeClass("header-bg-translucent");
+        }
+      });
+
     });
   </script>
 
